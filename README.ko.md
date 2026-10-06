@@ -2,12 +2,13 @@
 
 **Network Security · Infrastructure · AX/DX Consulting**
 
-**SMNetworks / NST Company** 공식 웹사이트입니다.
+**SMNetworks Company** 공식 웹사이트입니다.
 
 Technical Director: **magnox netnox**  
 전문 분야: Network Security, Xen / Hyper-V, Nutanix, 엔터프라이즈 인프라  
 주요 실적: Lotte Group, Shinhan 등 국내 대기업 인프라  
-위치: 베트남 호치민시 Quan 7
+위치: 베트남 호치민시 Quan 7  
+시작: 2008년 (한–베 엔터프라이즈 인프라)
 
 ---
 
@@ -49,7 +50,9 @@ GitHub 저장소를 Cloudflare Pages에 연결하면 `main` 브랜치에 push할
 - 단일 파일 React 애플리케이션 (사전 번들)
 - Tailwind CSS (유틸리티 클래스 인라인)
 - 완전 정적 — 모든 정적 호스트에서 동작, Cloudflare Pages / CDN에 최적화
-- 애플리케이션 내부에서 한국어 / 영어 이중 언어 지원
+- 애플리케이션 내부에서 한국어 / 영어 / 베트남어 지원
+- 브랜드 마크: **SMN** (헤더·푸터)
+- 경력 연수(2008년 기준)는 런타임에 자동 계산
 
 ---
 

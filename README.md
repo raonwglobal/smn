@@ -2,12 +2,13 @@
 
 **Network Security · Infrastructure · AX/DX Consulting**
 
-Official website for **SMNetworks / NST Company**.
+Official website for **SMNetworks Company**.
 
 Technical Director: **magnox netnox**  
 Specialties: Network Security, Xen / Hyper-V, Nutanix, enterprise infrastructure  
 Clients & track record: Lotte Group, Shinhan, and other major Korean enterprise infrastructures  
-Location: Quan 7, Ho Chi Minh City, Vietnam
+Location: Quan 7, Ho Chi Minh City, Vietnam  
+Since: 2008 (Korea–Vietnam enterprise infrastructure)
 
 ---
 
@@ -49,7 +50,9 @@ After connecting the GitHub repository to Cloudflare Pages, every push to `main`
 - Single-file React application (pre-bundled)
 - Tailwind CSS (utility classes inlined)
 - Fully static — works on any static host, optimized for Cloudflare Pages / CDN
-- Bilingual content (Korean / English) controlled inside the application
+- Multilingual content (Korean / English / Vietnamese) controlled inside the application
+- Brand mark: **SMN** (header and footer)
+- Years of experience (since 2008) calculated automatically at runtime
 
 ---
 
