@@ -1,59 +1,97 @@
-# Luna Chat Coder
+# SMNetworks
 
-[한국어 README](README.ko.md)
+**Network Security · Infrastructure · AX/DX Consulting**
 
-**Version 0.1.5**
+Official website for **SMNetworks / NST Company**.
 
-Use ordinary ChatGPT Web conversations for real GitHub repository work—without running a local coding agent, opening a tunnel, or giving the chat access to your computer.
+Technical Director: **magnox netnox**  
+Specialties: Network Security, Xen / Hyper-V, Nutanix, enterprise infrastructure  
+Clients & track record: Lotte Group, Shinhan, and other major Korean enterprise infrastructures  
+Location: Quan 7, Ho Chi Minh City, Vietnam
 
-ChatGPT already has a sandbox that can run code. The catch is that network restrictions can stop repository work when the chat needs source, dependencies, or a reliable way to publish a larger change. Luna teaches the model to keep the development loop in that built-in sandbox and use connected GitHub access only for the missing pieces.
+---
 
-## What you get
+## Live Site
 
-- **A useful built-in workspace.** Editing, building, testing, and debugging stay in the chat sandbox whenever it can do the job.
-- **Fewer dead ends.** If the normal path cannot complete a step reliably, Luna can use GitHub for that step instead of giving up or moving the whole workflow elsewhere.
-- **Safer recovery.** If the chat or sandbox disappears, Luna resumes from exact GitHub state rather than trying to recreate code from conversation history.
-- **Reliable handoff.** After substantial work on repository files, Luna can give you a complete sandbox workspace snapshot when the chat supports direct file downloads, while still checking the state it publishes before reporting completion.
+This repository is intended to be deployed on **Cloudflare Pages**.
 
-The point is simple: give the chat a repository and a development task, not a new piece of infrastructure to operate.
+- Static single-page application (`index.html` at repository root)
+- No build step required
+- Recommended Cloudflare Pages settings:
+  - **Framework preset**: None
+  - **Build command**: *(leave empty)*
+  - **Build output directory**: `/` (or leave empty)
+  - **Root directory**: `/`
 
-## Quick start
+After connecting the GitHub repository to Cloudflare Pages, every push to `main` will automatically publish the site.
 
-For the ChatGPT Web setup documented here:
+---
 
-1. Choose **Use this template → Create a new repository**.
-2. In ChatGPT, install/connect the **GitHub Plugin** from <https://chatgpt.com/plugins>.
-3. On GitHub, install the **ChatGPT Codex Connector** from <https://github.com/apps/chatgpt-codex-connector> and grant it access to the new repository. If the App is already installed for selected repositories, add the new repository to that list.
-4. In a normal ChatGPT conversation, send the repository URL and the development task—for example, ask it to implement a change and open a pull request.
+## Project Structure
 
-That is the normal workflow. A repository created from this template already contains Luna, and you should not need to mention Luna by name or manage its internal recovery steps yourself.
-
-Organization policy may require an administrator to approve the Plugin or GitHub App.
-
-## How it works
-
-Luna reads the repository's own instructions and requirements, recovers the exact source it should work from, and uses the chat sandbox for the normal edit/test loop.
-
-When direct sandbox access is not enough, Luna can use the connected GitHub path for the missing step. If that path still cannot complete the step reliably, a bounded GitHub Actions run can handle it, then return the work to the sandbox when possible. GitHub Actions is not the default coding environment.
-
-## Add Luna to an existing repository
-
-Copy the complete skill directory:
-
-```text
-.agents/skills/luna-chat-coder/
+```
+.
+├── index.html          # Complete SPA (React + Tailwind, self-contained)
+├── README.md           # This file (English)
+├── README.ko.md        # Korean version
+├── LICENSE             # MIT
+└── .gitignore
 ```
 
-Then merge the short Luna entry-point instruction from [`AGENTS.md`](AGENTS.md) into the repository's existing agent instructions. Keep the project's own engineering guidance; Luna works around it rather than replacing it.
+> **Note**  
+> The `.agents/` directory and `AGENTS.md` (if present locally) contain auxiliary AI coding helpers (e.g. luna-chat-coder).  
+> They are **not** part of the website codebase, are listed in `.gitignore`, and must never be included in the published site or production artifacts.
 
-For the documented ChatGPT Web path, connect the GitHub Plugin and grant the ChatGPT Codex Connector access to the repository before asking the chat to work on it.
+---
 
-## Documentation
+## Technology
 
-Runtime behavior lives in [`SKILL.md`](.agents/skills/luna-chat-coder/SKILL.md). Operational details are in [`actions-missions.md`](.agents/skills/luna-chat-coder/references/actions-missions.md) and [`recovery.md`](.agents/skills/luna-chat-coder/references/recovery.md). [`design-rationale.md`](.agents/skills/luna-chat-coder/references/design-rationale.md) is maintainer memory for changing Luna itself; normal skill use does not depend on it.
+- Single-file React application (pre-bundled)
+- Tailwind CSS (utility classes inlined)
+- Fully static — works on any static host, optimized for Cloudflare Pages / CDN
+- Bilingual content (Korean / English) controlled inside the application
 
-Luna follows the Agent Skills structure. ChatGPT Web is the path documented and tested here; another host can use the same skill when it provides equivalent sandbox and GitHub capabilities.
+---
+
+## Local Preview
+
+Because the site is a single static HTML file:
+
+```bash
+# Python
+python -m http.server 8080
+
+# or Node
+npx serve .
+```
+
+Then open `http://localhost:8080`.
+
+---
+
+## Cloudflare Deployment Checklist
+
+1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **Create** → **Pages** → Connect to Git.
+2. Select the repository `raonwglobal/smn`.
+3. Configure:
+   - Production branch: `main`
+   - Build command: *(empty)*
+   - Build output directory: `/` or empty
+4. Deploy.
+5. (Optional) Attach a custom domain and enable Cloudflare SSL / CDN features.
+
+No Node.js, no package.json, no build pipeline is required.  
+The large self-contained `index.html` is intentionally designed for zero-config static hosting.
+
+---
+
+## Contact
+
+- Email: [magnox@nate.com](mailto:magnox@nate.com)
+- LinkedIn: [magnox-netnox](https://www.linkedin.com/in/magnox-netnox-a856443a)
+
+---
 
 ## License
 
-MIT. See [`LICENSE`](LICENSE).
+MIT — see [LICENSE](LICENSE).
