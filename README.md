@@ -90,8 +90,8 @@ The large self-contained `index.html` is intentionally designed for zero-config 
 
 ## Contact
 
-- Email: [magnox@nate.com](mailto:magnox@nate.com)
-- LinkedIn: [magnox-netnox](https://www.linkedin.com/in/magnox-netnox-a856443a)
+- Email: [magnox@sm-networks.net]
+- LinkedIn: [magnox](https://www.linkedin.com/in/magnox-netnox-a856443a)
 
 ---
 
