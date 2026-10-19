@@ -4,8 +4,8 @@
 
 Official website for **SMNetworks Company**.
 
-Technical Director: **magnox netnox**  
-Specialties: Network Security, Xen / Hyper-V, Nutanix, enterprise infrastructure  
+Technical Director: **magnox**  
+Specialties: Network Security, Xen / Hyper-V, Nutanix, enterprise infrastructure, AX/DX 
 Clients & track record: Lotte Group, Shinhan, and other major Korean enterprise infrastructures  
 Location: Quan 7, Ho Chi Minh City, Vietnam  
 Since: 2008 (Korea–Vietnam enterprise infrastructure)
