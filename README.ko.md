@@ -4,8 +4,8 @@
 
 **SMNetworks Company** 공식 웹사이트입니다.
 
-Technical Director: **magnox netnox**  
-전문 분야: Network Security, Xen / Hyper-V, Nutanix, 엔터프라이즈 인프라  
+Technical Director: **magnox**  
+전문 분야: Network Security, Xen / Hyper-V, Nutanix, 엔터프라이즈 인프라, AX/DX  
 주요 실적: Lotte Group, Shinhan 등 국내 대기업 인프라  
 위치: 베트남 호치민시 Quan 7  
 시작: 2008년 (한–베 엔터프라이즈 인프라)
@@ -90,8 +90,8 @@ Node.js, package.json, 빌드 파이프라인은 필요하지 않습니다.
 
 ## 문의
 
-- Email: [magnox@nate.com](mailto:magnox@nate.com)
-- LinkedIn: [magnox-netnox](https://www.linkedin.com/in/magnox-netnox-a856443a)
+- Email: [magnox@sm-networks.net](mailto:magnox@sm-networks.net)
+- LinkedIn: [magnox](https://www.linkedin.com/in/magnox-netnox-a856443a)
 
 ---
 
