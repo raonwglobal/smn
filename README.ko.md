@@ -16,7 +16,7 @@ Technical Director: **magnox**
 
 이 저장소는 **Cloudflare Pages**에 배포하는 것을 전제로 합니다.
 
-- 정적 단일 페이지 애플리케이션 (`index.html`이 저장소 루트에 위치)
+- 정적 SPA (`index.html` 셸 + `assets/`)
 - 빌드 단계 없음
 - 권장 Cloudflare Pages 설정:
   - **Framework preset**: None
@@ -32,12 +32,18 @@ GitHub 저장소를 Cloudflare Pages에 연결하면 `main` 브랜치에 push할
 
 ```
 .
-├── index.html          # 완전한 SPA (React + Tailwind, 단일 파일)
-├── README.md           # 영어 버전
-├── README.ko.md        # 이 파일 (한국어)
-├── LICENSE             # MIT
+├── index.html              # HTML 셸 + SEO 메타
+├── assets/
+│   ├── app.css             # Tailwind 유틸리티
+│   ├── content.js          # i18n / 카피 (ko · en · vi) — 문구 수정은 여기
+│   └── app.js              # React 런타임 + UI
+├── README.md               # 영어 버전
+├── README.ko.md            # 이 파일 (한국어)
+├── LICENSE                 # MIT
 └── .gitignore
 ```
+
+빌드 없음(완전 정적). 마케팅 문구는 **`assets/content.js`** 를 수정하세요.
 
 > **참고**  
 > `.agents/` 디렉터리와 `AGENTS.md`(로컬에 존재하는 경우)는 AI 코딩 보조 도구(luna-chat-coder 등)용입니다.  
@@ -47,10 +53,10 @@ GitHub 저장소를 Cloudflare Pages에 연결하면 `main` 브랜치에 push할
 
 ## 기술 스택
 
-- 단일 파일 React 애플리케이션 (사전 번들)
-- Tailwind CSS (유틸리티 클래스 인라인)
+- React 애플리케이션 (`assets/app.js` 사전 번들)
+- Tailwind CSS (`assets/app.css`)
+- 카피/i18n 분리 (`assets/content.js` — 한국어 / 영어 / 베트남어)
 - 완전 정적 — 모든 정적 호스트에서 동작, Cloudflare Pages / CDN에 최적화
-- 애플리케이션 내부에서 한국어 / 영어 / 베트남어 지원
 - 브랜드 마크: **SMN** (헤더·푸터)
 - 경력 연수(2008년 기준)는 런타임에 자동 계산
 
@@ -58,10 +64,10 @@ GitHub 저장소를 Cloudflare Pages에 연결하면 `main` 브랜치에 push할
 
 ## 로컬 미리보기
 
-사이트가 단일 정적 HTML 파일이므로 다음과 같이 간단히 확인할 수 있습니다.
+ES 모듈 로드를 위해 HTTP 서버로 실행하세요.
 
 ```bash
-# Python
+# 저장소 루트에서
 python -m http.server 8080
 
 # 또는 Node
@@ -83,8 +89,7 @@ npx serve .
 4. Deploy.
 5. (선택) 커스텀 도메인 연결 및 Cloudflare SSL / CDN 기능 활성화.
 
-Node.js, package.json, 빌드 파이프라인은 필요하지 않습니다.  
-큰 용량의 자체 완결형 `index.html`은 설정 없는 정적 호스팅을 위해 의도적으로 설계되었습니다.
+Node.js, package.json, 빌드 파이프라인은 필요하지 않습니다.
 
 ---
 
