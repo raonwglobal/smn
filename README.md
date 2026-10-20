@@ -16,7 +16,7 @@ Since: 2008 (Korea–Vietnam enterprise infrastructure)
 
 This repository is intended to be deployed on **Cloudflare Pages**.
 
-- Static single-page application (`index.html` at repository root)
+- Static SPA (HTML shell + `assets/`)
 - No build step required
 - Recommended Cloudflare Pages settings:
   - **Framework preset**: None
@@ -32,12 +32,18 @@ After connecting the GitHub repository to Cloudflare Pages, every push to `main`
 
 ```
 .
-├── index.html          # Complete SPA (React + Tailwind, self-contained)
-├── README.md           # This file (English)
-├── README.ko.md        # Korean version
-├── LICENSE             # MIT
+├── index.html              # HTML shell + SEO meta
+├── assets/
+│   ├── app.css             # Tailwind (inlined utilities)
+│   ├── content.js          # i18n / copy (ko · en · vi) — edit text here
+│   └── app.js              # React runtime + UI logic
+├── README.md               # This file (English)
+├── README.ko.md            # Korean version
+├── LICENSE                 # MIT
 └── .gitignore
 ```
+
+Static hosting only — no build step. Prefer editing **`assets/content.js`** for marketing copy.
 
 > **Note**  
 > The `.agents/` directory and `AGENTS.md` (if present locally) contain auxiliary AI coding helpers (e.g. luna-chat-coder).  
@@ -47,10 +53,10 @@ After connecting the GitHub repository to Cloudflare Pages, every push to `main`
 
 ## Technology
 
-- Single-file React application (pre-bundled)
-- Tailwind CSS (utility classes inlined)
+- React application (pre-bundled in `assets/app.js`)
+- Tailwind CSS (`assets/app.css`)
+- Copy / i18n isolated in `assets/content.js` (Korean / English / Vietnamese)
 - Fully static — works on any static host, optimized for Cloudflare Pages / CDN
-- Multilingual content (Korean / English / Vietnamese) controlled inside the application
 - Brand mark: **SMN** (header and footer)
 - Years of experience (since 2008) calculated automatically at runtime
 
@@ -58,17 +64,13 @@ After connecting the GitHub repository to Cloudflare Pages, every push to `main`
 
 ## Local Preview
 
-Because the site is a single static HTML file:
-
 ```bash
-# Python
+# From repo root (required for ES modules)
 python -m http.server 8080
-
-# or Node
-npx serve .
+# or: npx serve .
 ```
 
-Then open `http://localhost:8080`.
+Open `http://localhost:8080`.
 
 ---
 
@@ -83,8 +85,7 @@ Then open `http://localhost:8080`.
 4. Deploy.
 5. (Optional) Attach a custom domain and enable Cloudflare SSL / CDN features.
 
-No Node.js, no package.json, no build pipeline is required.  
-The large self-contained `index.html` is intentionally designed for zero-config static hosting.
+No Node.js, no package.json, no build pipeline is required.
 
 ---
 
